@@ -7,7 +7,7 @@
 <body>
     <h1>Login Page</h1>
 
-    <form>
+    <form onsubmit="return loginCheck(event)">
         <label>Username:</label>
         <input type="text" id="username" ><br><br>
 
@@ -19,10 +19,10 @@
 <p>
     <a href="index.html">Back to Home</a>
 </p>
-</body>
 <script>
 function loginCheck(event) {
-   
+    event.preventDefault();
+
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
 
@@ -34,4 +34,6 @@ function loginCheck(event) {
     }
 }
 </script>
+</body>
+
 </html>
