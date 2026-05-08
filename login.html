@@ -9,10 +9,10 @@
 
     <form>
         <label>Username:</label>
-        <input type="text"><br><br>
+        <input type="text" id="username" ><br><br>
 
         <label>Password:</label>
-        <input type="password"><br><br>
+        <input type="password" id="password" ><br><br>
 
         <button type="submit">Login</button>
     </form>
@@ -20,4 +20,18 @@
     <a href="index.html">Back to Home</a>
 </p>
 </body>
+<script>
+function loginCheck(event) {
+   
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "admin" && pass === "password123") {
+        alert("Login successful");
+        window.location.href = "success.html";
+    } else {
+        alert("Access denied");
+    }
+}
+</script>
 </html>
