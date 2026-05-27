@@ -1,23 +1,23 @@
-#Cybersecurity Web Portal Lab: Building and Investigating a Vulnerable Website
-##Overview
+# Cybersecurity Web Portal Lab: Building and Investigating a Vulnerable Website
+## Overview
 To strengthen my hands-on cybersecurity skills, I built and analyzed a small intentionally vulnerable web application in a local environment. The goal was to experience both sides of web security: first as the developer building the application, then as the attacker identifying weaknesses. This project gave me the opportunity to practice and connect several concepts I’ve been learning throughout my self-directed cybersecurity journey, including: 
-###Web & Networking
+### Web & Networking
 - HTTP request/response lifecycle
 - Status codes (200, 404, etc.)
 - Localhost (127.0.0.1) and port-based hosting
 - Basic web server behavior
-###Frontend Development
+### Frontend Development
 - HTML page structure
 - JavaScript-based client-side logic
 - Form handling and input validation
-###Security Fundamentals
+### Security Fundamentals
 - CIA triad (confidentiality, integrity, availability)
 - OWASP Top 10
 - Authentication weaknesses (client-side authentication)
 - Sensitive data exposure (comments, scripts, hidden files)
 - Attack surface awareness
 - Reconnaissance & Analysis
-###Manual source code inspection
+### Manual source code inspection
 - Browser DevTools (network requests, headers)
 - Hidden page discovery and enumeration concepts
 - Basic directory brute forcing (Gobuster)
