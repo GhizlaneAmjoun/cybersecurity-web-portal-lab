@@ -41,7 +41,7 @@ Through this testing, I observed several common HTTP status codes:
 
 *404 File Not Found: requested resource does not exist*
 
-Screenshots/Status404.png
+!"Status404" (Screenshots/Status404.png)
 
 200 OK: successful request and response
 
