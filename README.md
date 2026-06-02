@@ -9,26 +9,39 @@ I built and analyzed a small (intentionally vulnerable) web application in a loc
 - **Security Fundamentals:** CIA triad, OWASP Top 10, CWE’s, authentication weaknesses, sensitive data exposure, attack surface awareness
 - **Reconnaissance & Analysis:** Manual source code inspection, browser DevTools, hidden page discovery and enumeration concepts, basic directory brute forcing
 
-Project Setup
-Technical Details 
-Application: Static website (“The Cat Corner”)
-Languages: HTML, JavaScript
-Code Editor: Visual Studio Code
-Version Control: Git, GitHub
-Local Hosting: Python HTTP server (python3 -m http.server 8080)
-Accessed via: http://127.0.0.1:8080
-Site Structure/Flow
-Users start at the home page: index.html
-Navigation is provided to a login page: login.html
-Successful login redirects to a “success” page: success.html
-Hidden page (secret.html) exists outside the normal navigation flow 
-Security Investigation
+## Project Setup
+
+**Technical Details** 
+
+- Application: Static website (“The Cat Corner”)
+- Languages: HTML, JavaScript
+- Code Editor: Visual Studio Code
+- Version Control: Git, GitHub
+- Local Hosting: Python HTTP server (python3 -m http.server 8080)
+- Accessed via: http://127.0.0.1:8080
+  
+**Site Structure/Flow**
+
+- Users start at the home page: index.html
+- Navigation is provided to a login page: login.html
+- Successful login redirects to a “success” page: success.html
+- Hidden page (secret.html) exists outside the normal navigation flow
+  
+## Security Investigation
+
 After building the site, I shifted into an attacker mindset and analyzed it for common vulnerabilities.
-1. Analyzing HTTP Requests
-Procedure
+
+### Analyzing HTTP Requests
+
+**Procedure**
+
 Using the Browser Developer Tools (Network tab), I inspected the HTTP requests generated while interacting with the site. I disabled browser caching so each request would be fetched directly from the server, allowing me to observe real-time responses instead of cached results. I navigated through different pages, refreshed content, and modified URLs to observe how the server responded under both valid and invalid requests. I also examined the Headers and Response panels to better understand the information exchanged between the browser and server, including response codes, server details, and resource handling.
+
 Through this testing, I observed several common HTTP status codes:
-404 File Not Found: requested resource does not exist
+
+*404 File Not Found: requested resource does not exist*
+
+Screenshots/Status404.png
 
 200 OK: successful request and response
 
