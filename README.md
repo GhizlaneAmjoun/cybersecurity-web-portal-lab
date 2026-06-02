@@ -151,8 +151,8 @@ The findings from the investigation were mapped to their most relevant CWE class
 
 **CWE Mappings**
 
-- CWE-425 (Direct Request / Forced Browsing): Hidden pages were accessible directly through their URLs without any access restrictions.
-- CWE-615 (Sensitive Information in Source Code Comments): Developer comments exposed internal information about application structure.
+- **CWE-425 (Direct Request / Forced Browsing):** Hidden pages were accessible directly through their URLs without any access restrictions.
+- _CWE-615 (Sensitive Information in Source Code Comments):_ Developer comments exposed internal information about application structure.
 - CWE-602 (Client-Side Enforcement of Server-Side Security): Authentication logic was implemented entirely on the client side, allowing it to be bypassed or manipulated.
 - CWE-798 (Hard-coded Credentials): Credentials were embedded directly in frontend source code and visible to users.
 - CWE-1391 (Use of Weak Credentials): A weak password was used, reducing resistance to basic guessing attempts.
