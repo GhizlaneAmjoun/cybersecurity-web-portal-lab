@@ -1,4 +1,4 @@
-# Cybersecurity Web Portal Lab: Building and Investigating a Vulnerable Website
+# "The Cat Corner": Building and Investigating a Vulnerable Website
 
 ## Overview
 
