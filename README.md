@@ -2,7 +2,7 @@
 
 ## Overview
 
-I built and analyzed a small (intentionally vulnerable) web application in a local environment to test its security. The goal was to experience both sides of web security: first as the developer building the application, then as the attacker identifying weaknesses. This project gave me the opportunity to apply and connect some of the concepts I’ve been exploring through my cybersecurity journey, including:
+I built and analyzed a small (intentionally vulnerable) web application in a local environment to test its security. The goal was to experience both sides of web security: first as the developer building the application, then as the attacker identifying weaknesses. This project gave me the opportunity to apply and connect some concepts I’ve been exploring through my cybersecurity journey, including:
 
 - *Web & Networking:* HTTP request/response, status codes, localhost (127.0.0.1) and port-based hosting, basic web server behavior
 - *Frontend Development:* HTML page structure, JavaScript client-side logic, form handling and input validation
