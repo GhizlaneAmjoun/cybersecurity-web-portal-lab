@@ -51,11 +51,11 @@ Through this testing, I observed several common HTTP status codes such as:
 
 ![Status301](Screenshots/Status301.png)
 
-**Findings**
+#### Findings
 
 This exercise helped me better understand how the application communicates over HTTP and how information can be gathered during the reconnaissance phase of an assessment. While I did not identify any major vulnerabilities in the HTTP responses themselves, I observed that all pages were directly accessible through their URLs since there was no authentication or access control layer in place. I also noticed that the server exposed basic implementation details through HTTP headers (Python SimpleHTTP server), which could help an attacker identify the technologies being used. Overall, this demonstrated how HTTP traffic can reveal useful information about an application's structure and technologies.
 
-**Recommendations**
+#### Recommendations
 
 For a more secure setup in a real environment, I would recommend:
 
@@ -65,7 +65,7 @@ For a more secure setup in a real environment, I would recommend:
 
 ### Inspecting the Source Code
 
-**Procedure**
+#### Procedure
 
 I manually reviewed the frontend source code using the browser "View Page Source" tool to better understand how the application was structured and to see whether any sensitive information was exposed. During this review, I discovered a developer comment in index.html:
 
@@ -77,11 +77,11 @@ This suggested the presence of a hidden page. I tested several common path varia
 
 ![SecretPage](Screenshots/SecretPage.png)
 
-**Findings**
+#### Findings
 
 While reviewing the source code, I found information that revealed details about the application's structure. Although the page was hidden from normal navigation, it was still accessible directly through its URL. This demonstrated how information exposed in source code can unintentionally reveal application functionality and how hidden resources can still be discovered even when they are not linked anywhere on the site.I also observed that there were no controls preventing direct access to the page once its location was known.
 
-**Recommendations**
+#### Recommendations
 
 For a more secure setup in a real environment, I would recommend:
 
@@ -92,7 +92,7 @@ For a more secure setup in a real environment, I would recommend:
 
 ### Analyzing Authentication & Password Testing
 
-**Procedure**
+#### Procedure
 
 I inspected login.html to understand how authentication was implemented in the application. While reviewing the source code, I observed that the login logic was handled entirely in client-side JavaScript and that the credentials were hardcoded directly into the page. Using those credentials, I was able to login successfully.
 
@@ -106,11 +106,11 @@ To further evaluate the login process, I tested the form using a list of common 
 
 The script successfully cycled through the password list and repeatedly submitted login attempts without any restrictions.
 
-**Findings**
+#### Findings
 
 This testing showed that the authentication process was implemented entirely on the client side, meaning both the authentication logic and credentials were visible to anyone inspecting the source code. I observed that a weak password (password123) was used and that there were no protections against repeated login attempts. The login form accepted continuous submissions without any form of rate limiting, lockout mechanism, or additional verification. Overall, this demonstrated why authentication should not be trusted when implemented solely in frontend code and how exposed credentials can quickly undermine the security of an application.
 
-**Recommendations**
+#### Recommendations
 
 For a more secure setup in a real environment, I would recommend:
 
@@ -123,18 +123,18 @@ For a more secure setup in a real environment, I would recommend:
 
 ### Enumerating Hidden Resources
 
-**Procedure**
+#### Procedure
 
 To check for accessible hidden resources, I used Gobuster with a SecLists wordlist to scan for common files and directories on the site. The scan returned several accessible paths, including:
 /index.html, /pictures/, /.git/, /.git/index, and /.gitignore.
 
 ![Gobuster](Screenshots/Gobuster.png)
 
-**Findings**
+#### Findings
 
 This exercise demonstrated how automated enumeration tools can quickly discover resources that may not be visible through normal browsing. While some of the results were expected, such as index.html and the pictures directory, I was more interested in finding the exposed .git/ directory and related repository files. I observed that repository metadata was publicly accessible, including files such as .git/index and .gitignore. Although this was only a local lab environment, exposed version control files could provide valuable information about an application's structure, development history, and internal files. This testing also showed how an attacker can gather information about an application simply by probing for common files and directories, even when they are not linked anywhere on the site. Overall, this reinforced the importance of reviewing what is publicly accessible before deploying an application, since internal files can unintentionally become part of the attack surface.
 
-**Recommendations**
+#### Recommendations
 
 For a more secure setup in a real environment, I would recommend:
 
@@ -147,7 +147,7 @@ For a more secure setup in a real environment, I would recommend:
 
 The findings from the investigation were mapped to their most relevant CWE classifications and aligned with the OWASP Top 10 (2025) to connect implementation-level issues with broader web security risk categories.
 
-**CWE Mappings**
+#### CWE Mappings
 
 - _CWE-425 (Direct Request ('Forced Browsing'):_ Hidden pages were accessible directly through their URLs without any access restrictions
 - _CWE-615 (Inclusion of Sensitive Information in Source Code Comments):_ Developer comments exposed internal information about application structure
@@ -159,7 +159,7 @@ The findings from the investigation were mapped to their most relevant CWE class
 - *CWE-552 (Files or Directories Accessible to External Parties):* The .git/ directory and repository files were publicly accessible
 - *CWE-497 (Exposure of Sensitive System Information to an Unauthorized Control Sphere):* HTTP responses disclosed underlying server and implementation details
   
-**OWASP Top 10 (2025) Alignment**
+#### OWASP Top 10 (2025) Alignment
 
 These issues primarily map to the following OWASP Top 10 categories:
 
