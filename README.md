@@ -33,7 +33,7 @@ After building the site, I shifted into an attacker mindset and analyzed it for 
 
 ### Analyzing HTTP Requests
 
-**Procedure**
+#### Procedure
 
 Using the Browser Developer Tools (Network tab), I inspected the HTTP requests generated while interacting with the site. I disabled browser caching so each request would be fetched directly from the server, allowing me to observe real-time responses instead of cached results. I navigated through different pages, refreshed content, and modified URLs to observe how the server responded under both valid and invalid requests. I also examined the Headers and Response panels to better understand the information exchanged between the browser and server, including response codes, server details, and resource handling.
 
